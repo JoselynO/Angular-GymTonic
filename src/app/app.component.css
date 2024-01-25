@@ -31,6 +31,14 @@ mat-form-field{
   width: 500px;
 }
 
+span{
+  margin: 1rem auto;
+  display: flex;
+  width: 500px;
+  margin-top: -20px;
+  color: red;
+}
+
 .btnSiguiente{
  text-align: end;
 }
@@ -47,3 +55,5 @@ mat-radio-group, section{
   width: 500px;
   background-color: aqua;
 }
+.black{
+  color: black;}
