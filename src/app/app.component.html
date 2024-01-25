@@ -1,6 +1,6 @@
 <div>
   <mat-toolbar>
-    <span>GYM TONIC VIVES</span>
+    <span class="black">GYM TONIC VIVES</span>
     <span  class = "example-spacer" > </span>
     <mat-icon  aria-hidden = "false"  aria-label = "Ejemplo de icono de inicio"> </mat-icon>
      <mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>
@@ -13,37 +13,72 @@
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup" (ngSubmit)="submit()" class="formulario">
       <ng-template matStepLabel>Datos Personales</ng-template>
-    
+      
       <mat-form-field>
         <mat-label>Nombre:</mat-label>
-        <input matInput placeholder="Nombre" type="text" required >
-      </mat-form-field><br>
+        <input matInput placeholder="Nombre" type="text" required formControlName="nombre">
+      </mat-form-field>
+      <span *ngIf="this.firstFormGroup.get('nombre')?.errors?.['required']">
+        El nombre es obligatorio.
+      </span>
+      <span *ngIf="this.firstFormGroup.get('nombre')?.errors?.['minlength']">
+        El nombre debe tener como minimo 6 caracteres.
+      </span>
+      <span *ngIf="this.firstFormGroup.get('nombre')?.errors?.['maxlength']">
+        El nombre debe tener como maximo 30 caracteres.
+      </span>
       
-
       <mat-form-field>
         <mat-label>Dirección:</mat-label>
-        <input matInput placeholder="Dirección" type="text" required>
-      </mat-form-field><br>
+        <input matInput placeholder="Dirección" type="text" required formControlName="direccion">
+      </mat-form-field>
+      <span *ngIf="this.firstFormGroup.get('direccion')?.errors?.['required']">
+        La dirección no puede estar vacia.
+      </span>
+      <span *ngIf="this.firstFormGroup.get('direccion')?.errors?.['minlength']">
+        La dirección debe tener como minimo 5 caracteres.
+      </span>
+      <span *ngIf="this.firstFormGroup.get('direccion')?.errors?.['maxlength']">
+        La direccion debe tener como maximo 20 caracteres.
+      </span>
 
       <mat-form-field>
         <mat-label>Telefono:</mat-label>
-        <input matInput placeholder="Telefono" type="text" required>
-      </mat-form-field><br>
+        <input matInput placeholder="Telefono" type="text" required formControlName="telefono">
+      </mat-form-field>
+      <span *ngIf="this.firstFormGroup.get('telefono')?.errors?.['required']">
+        El numero de telefono no puede estar vacio.
+      </span>
+      <span *ngIf="this.firstFormGroup.get('telefono')?.errors?.['pattern']">
+        El numero de telefono debe empezar por (6,7,8,9) y luego 8 numeros mas.
+      </span>
 
       <mat-form-field>
         <mat-label>Email:</mat-label>
-        <input matInput placeholder="Email" type="text" required>
-      </mat-form-field><br>
+        <input matInput placeholder="Email" type="text" required formControlName="email">
+      </mat-form-field>
+      <span *ngIf="this.firstFormGroup.get('email')?.errors?.['required']">
+        El email no puede estar vacio.
+      </span>
+      <span *ngIf="this.firstFormGroup.get('email')?.errors?.['pattern']">
+        El email debe ser valido.
+      </span>
 
       <mat-form-field>
         <mat-label>Password:</mat-label>
-        <input matInput placeholder="Password" type="password" required>
-      </mat-form-field><br>
+        <input matInput placeholder="Password" type="password" required formControlName="password">
+      </mat-form-field>
+      <span *ngIf="this.firstFormGroup.get('password')?.errors?.['required']">
+        El password no puede estar vacio.
+      </span>
 
       <mat-form-field>
         <mat-label>Repetir Password:</mat-label>
-        <input matInput placeholder="Repetir Password" type="password" required>
-      </mat-form-field><br>
+        <input matInput placeholder="Repetir Password" type="password" required formControlName="repetirPassword">
+      </mat-form-field>
+      <span *ngIf="this.firstFormGroup.get('repetirPassword')?.errors?.['required']">
+        Repetir Password no puede estar vacia.
+      </span>
 
       <div class="btnSiguiente">
         <button mat-button matStepperNext>Siguiente</button>
@@ -57,7 +92,7 @@
     <form [formGroup]="secondFormGroup">
       <mat-form-field>
         <mat-label>Clases:</mat-label>
-        <mat-select multiple>
+        <mat-select multiple formControlName="clases">
           <mat-option value="option1">Pilates</mat-option>
           <mat-option value="option2">Yoga</mat-option>
           <mat-option value="option3">Zumba</mat-option>
@@ -65,15 +100,25 @@
           <mat-option value="option5">G.A.P</mat-option>
         </mat-select>
       </mat-form-field>
+      <span *ngIf="this.secondFormGroup.get('clases')?.errors?.['required']">
+        Seleccionar uno o más clases.
+      </span>
 
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">Hombre</mat-radio-button>
-        <mat-radio-button value="2">Mujer</mat-radio-button>
+      <mat-radio-group aria-label="Select an option" formControlName="base" >
+        <mat-radio-button value="hombre">Hombre</mat-radio-button>
+        <mat-radio-button value="mujer">Mujer</mat-radio-button>
       </mat-radio-group>
+      <span *ngIf="this.secondFormGroup.get('base')?.errors?.['required']">
+        Seleccione el sexo correspondiente.
+      </span>
 
       <section class="example-section">
-        <mat-checkbox class="example-margin">Aceptar Condiciones</mat-checkbox>
+        <mat-checkbox class="example-margin" formControlName="aceptarC">Aceptar Condiciones</mat-checkbox>
       </section>
+      <span *ngIf="this.secondFormGroup.get('aceptarC')?.errors?.['required']">
+        Aceptar las condiciones.
+      </span>
+      
  
       <button id="btnIns" mat-button (click)="submit">Inscribirse</button>
 

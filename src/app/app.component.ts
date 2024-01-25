@@ -8,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AppComponent {
 
-  telefonoRegex = /^[6-9][0-8]{8}$/;
+  telefonoRegex = /^[6-9][0-9]{8}$/;
   passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$/;
   emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -26,6 +26,9 @@ export class AppComponent {
 
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
+    base: ['', [Validators.required]],
+    clases: ['', [Validators.required]],
+    aceptarC: ['',[Validators.requiredTrue]]
   });
   isLinear = false;
 
