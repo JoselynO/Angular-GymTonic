@@ -1,0 +1,49 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-mdc-form-field {
+    margin-top: 16px;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+.mat-toolbar{
+  background-color: rgba(0, 170, 255, 0.082);
+}
+.mat-icon{
+    background-image: url('../assets/img/icons8-twitter-48.png');
+    background-size: cover;
+    width: 24px; 
+    height: 24px;
+}
+.mat-icon-rtl-mirror{
+  background-image: url('../assets/img/icons8-facebook-48.png');
+  background-size: cover;
+  width: 24px; 
+  height: 24px;
+}
+
+mat-form-field{
+  margin: 1rem auto;
+  display: flex;
+  width: 500px;
+}
+
+.btnSiguiente{
+ text-align: end;
+}
+
+mat-radio-group, section{
+  margin: 1rem auto;
+  display: flex;
+  width: 500px;
+}
+
+#btnIns{
+  margin: 1rem auto;
+  display: flex;
+  width: 500px;
+  background-color: aqua;
+}

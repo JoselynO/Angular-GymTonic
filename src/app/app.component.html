@@ -1,0 +1,86 @@
+<div>
+  <mat-toolbar>
+    <span>GYM TONIC VIVES</span>
+    <span  class = "example-spacer" > </span>
+    <mat-icon  aria-hidden = "false"  aria-label = "Ejemplo de icono de inicio"> </mat-icon>
+     <mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>
+  </mat-toolbar>
+  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Habilitar modo lineal' : 'Deshabilitar modo lineal'}}
+  </button>
+</div>
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup" (ngSubmit)="submit()" class="formulario">
+      <ng-template matStepLabel>Datos Personales</ng-template>
+    
+      <mat-form-field>
+        <mat-label>Nombre:</mat-label>
+        <input matInput placeholder="Nombre" type="text" required >
+      </mat-form-field><br>
+      
+
+      <mat-form-field>
+        <mat-label>Dirección:</mat-label>
+        <input matInput placeholder="Dirección" type="text" required>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-label>Telefono:</mat-label>
+        <input matInput placeholder="Telefono" type="text" required>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-label>Email:</mat-label>
+        <input matInput placeholder="Email" type="text" required>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input matInput placeholder="Password" type="password" required>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-label>Repetir Password:</mat-label>
+        <input matInput placeholder="Repetir Password" type="password" required>
+      </mat-form-field><br>
+
+      <div class="btnSiguiente">
+        <button mat-button matStepperNext>Siguiente</button>
+      </div>
+
+    </form>
+  </mat-step>
+
+  <!--Segundo Formulario-->
+  <mat-step [stepControl]="secondFormGroup" label="Finalizar formulario">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field>
+        <mat-label>Clases:</mat-label>
+        <mat-select multiple>
+          <mat-option value="option1">Pilates</mat-option>
+          <mat-option value="option2">Yoga</mat-option>
+          <mat-option value="option3">Zumba</mat-option>
+          <mat-option value="option4">Fitness</mat-option>
+          <mat-option value="option5">G.A.P</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Hombre</mat-radio-button>
+        <mat-radio-button value="2">Mujer</mat-radio-button>
+      </mat-radio-group>
+
+      <section class="example-section">
+        <mat-checkbox class="example-margin">Aceptar Condiciones</mat-checkbox>
+      </section>
+ 
+      <button id="btnIns" mat-button (click)="submit">Inscribirse</button>
+
+      <div class="btnSiguiente">
+        <button mat-button matStepperPrevious>Atras</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>
