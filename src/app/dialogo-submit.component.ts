@@ -5,7 +5,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   template: `
    <div style="white-space: pre-line;">
     <h1>{{ data.titulo }}</h1>
-    <p>{{ data.submit }}</p>
+    <p>{{ data.mensaje }}</p>
   </div>
   `,
 })

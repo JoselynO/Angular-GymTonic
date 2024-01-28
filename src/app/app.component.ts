@@ -45,7 +45,7 @@ export class AppComponent {
         titulo: 'Datos Personales de la Inscripción',
         mensaje: `
           Nombre: ${this.firstFormGroup.value.nombre}\n
-          Dirección: ${this.firstFormGroup.value.direccion}\n
+          Dirección: ${this.firstFormGroup.value.direccion}\n 
           Teléfono: ${this.firstFormGroup.value.telefono}\n
           Email: ${this.firstFormGroup.value.email}\n
           Clases: ${this.secondFormGroup.value.clases}\n
