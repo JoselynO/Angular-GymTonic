@@ -17,7 +17,7 @@ export class AppComponent {
 
   firstFormGroup = this._formBuilder.group({
     nombre:  ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]],
-    direccion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+    direccion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],
     telefono: ['', [Validators.required, Validators.pattern(this.telefonoRegex)]],
     email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
     password: ['', [Validators.required, Validators.pattern(this.passwordRegex)]],
@@ -42,7 +42,7 @@ export class AppComponent {
   private mostrarDialogoExito() {
     const dialogRef = this.dialog.open(DialogoSubmitComponent, {
       data: {
-        titulo: 'Datos Personales de la Inscripción',
+        titulo: 'GYM TONIC CLUB',
         mensaje: `
           Nombre: ${this.firstFormGroup.value.nombre}\n
           Dirección: ${this.firstFormGroup.value.direccion}\n 

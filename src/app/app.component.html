@@ -37,7 +37,7 @@
         La dirección debe tener como minimo 5 caracteres.
       </span>
       <span *ngIf="this.firstFormGroup.get('direccion')?.errors?.['maxlength']">
-        La direccion debe tener como maximo 20 caracteres.
+        La direccion debe tener como maximo 30 caracteres.
       </span>
 
       <mat-form-field>
@@ -97,11 +97,11 @@
       <mat-form-field>
         <mat-label>Clases:</mat-label>
         <mat-select multiple formControlName="clases">
-          <mat-option value="option1">Pilates</mat-option>
-          <mat-option value="option2">Yoga</mat-option>
-          <mat-option value="option3">Zumba</mat-option>
-          <mat-option value="option4">Fitness</mat-option>
-          <mat-option value="option5">G.A.P</mat-option>
+          <mat-option value="Pilates">Pilates</mat-option>
+          <mat-option value="Yoga">Yoga</mat-option>
+          <mat-option value="Zumba">Zumba</mat-option>
+          <mat-option value="Fitness">Fitness</mat-option>
+          <mat-option value="G.A.P">G.A.P</mat-option>
         </mat-select>
       </mat-form-field>
       <span *ngIf="this.secondFormGroup.get('clases')?.errors?.['required']">
