@@ -41,7 +41,12 @@ span{
 
 .btnSiguiente{
  text-align: end;
+ margin-top: 6cm;
 }
+
+.btnPrimero{
+  text-align: end;
+ }
 
 mat-radio-group, section{
   margin: 1rem auto;
@@ -52,16 +57,8 @@ mat-radio-group, section{
 #btnIns{
   margin: 1rem auto;
   display: flex;
-  width: 500px;
+  width: 400px;
   background-color: aqua;
 }
 .black{
   color: black;}
-
-.finalizar{
-    display: flex;
-    flex-direction: column;
-    margin:1rem auto;
-    max-width: 300px;
-    margin-top: 40px;
-  }
