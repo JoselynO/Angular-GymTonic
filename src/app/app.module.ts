@@ -14,6 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

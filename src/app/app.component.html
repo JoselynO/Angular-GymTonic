@@ -11,7 +11,7 @@
 </div>
 <mat-stepper [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup" (ngSubmit)="submit()" class="formulario">
+    <form [formGroup]="firstFormGroup" class="formulario">
       <ng-template matStepLabel>Datos Personales</ng-template>
       
       <mat-form-field>
@@ -71,15 +71,21 @@
       <span *ngIf="this.firstFormGroup.get('password')?.errors?.['required']">
         El password no puede estar vacio.
       </span>
+      <span *ngIf="this.firstFormGroup.get('password')?.errors?.['pattern']">
+        La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
+      </span>
 
       <mat-form-field>
         <mat-label>Repetir Password:</mat-label>
-        <input matInput placeholder="Repetir Password" type="password" required formControlName="repetirPassword">
+        <input matInput placeholder="Repetir Password" type="password" required formControlName="repetirPassword"  >
       </mat-form-field>
       <span *ngIf="this.firstFormGroup.get('repetirPassword')?.errors?.['required']">
         Repetir Password no puede estar vacia.
       </span>
-
+      <span *ngIf="this.firstFormGroup.get('repetirPassword')?.errors?.['validarIgualdadClaves']">
+        El password debe ser igual.
+      </span>
+  
       <div class="btnSiguiente">
         <button mat-button matStepperNext>Siguiente</button>
       </div>
@@ -119,9 +125,9 @@
         Aceptar las condiciones.
       </span>
       
- 
-      <button id="btnIns" mat-button (click)="submit">Inscribirse</button>
-
+     <div class="finalizar" style="text-align: center;">
+      <button id="btnIns" mat-raised-button  (click)="submit()">Inscribirse</button>
+    </div>
       <div class="btnSiguiente">
         <button mat-button matStepperPrevious>Atras</button>
         <button mat-button (click)="stepper.reset()">Reset</button>

@@ -57,3 +57,11 @@ mat-radio-group, section{
 }
 .black{
   color: black;}
+
+.finalizar{
+    display: flex;
+    flex-direction: column;
+    margin:1rem auto;
+    max-width: 300px;
+    margin-top: 40px;
+  }
